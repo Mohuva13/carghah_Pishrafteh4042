@@ -1,0 +1,22 @@
+## .NET build artifacts
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+
+## IDE
+.vs/
+.vscode/
+*.swp
+
+## Test results
+TestResults/
+
+## Runtime data files created by the app
+data/*.json
+
+## Project deliverables that must stay out of git (per course instructions)
+PROJECT_GUIDE.md
+uml/
