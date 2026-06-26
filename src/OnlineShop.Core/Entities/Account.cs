@@ -45,6 +45,24 @@ public abstract class Account
         }
     }
 
+    /// <summary>
+    /// سازنده مخصوص بازیابی حساب از فایل داده ذخیره شده (JSON). چون در این حالت
+    /// مقادیر (ایمیل/تلفن) از قبل معتبرسنجی شده اند، دوباره بررسی regex لازم نیست
+    /// و رمز عبور هش شده مستقیما (بدون هش مجدد) نشانده می شود.
+    /// </summary>
+    protected Account(string username, string email, string phoneNumber)
+    {
+        Username = username;
+        _email = email;
+        _phoneNumber = phoneNumber;
+    }
+
+    /// <summary>هش رمز عبور، برای ذخیره سازی در فایل داده. خود رمز عبور هرگز در دسترس نیست.</summary>
+    public string PasswordHash => _passwordHash;
+
+    /// <summary>فقط برای لایه بازیابی داده (Data) استفاده می شود تا هش قبلا محاسبه شده را بدون هش مجدد بنشاند.</summary>
+    protected void RestorePasswordHash(string hash) => _passwordHash = hash;
+
     /// <summary>نام کاربری، پس از ساخت حساب دیگر قابل تغییر نیست.</summary>
     public string Username { get; }
 

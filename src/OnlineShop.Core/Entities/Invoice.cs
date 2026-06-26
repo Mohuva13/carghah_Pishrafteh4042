@@ -4,10 +4,16 @@ namespace OnlineShop.Core.Entities;
 public sealed class Invoice
 {
     public Invoice(int id, string buyerUsername, IEnumerable<InvoiceItem> items)
+        : this(id, buyerUsername, DateTime.Now, items)
+    {
+    }
+
+    /// <summary>سازنده مخصوص بازیابی فاکتور از فایل داده، با تاریخ اصلی خرید.</summary>
+    public Invoice(int id, string buyerUsername, DateTime date, IEnumerable<InvoiceItem> items)
     {
         Id = id;
         BuyerUsername = buyerUsername;
-        Date = DateTime.Now;
+        Date = date;
         Items = items.ToList();
         PaidAmount = Items.Sum(i => i.LineTotal);
     }

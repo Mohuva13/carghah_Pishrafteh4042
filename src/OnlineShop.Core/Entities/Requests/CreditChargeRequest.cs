@@ -17,6 +17,15 @@ public sealed class CreditChargeRequest : RequestBase
         MaskedCardNumber = "**** **** **** " + cardNumber[^4..];
     }
 
+    /// <summary>سازنده مخصوص بازیابی از فایل داده؛ شماره کارت اصلی ذخیره نمی شد، فقط نسخه ماسک شده موجود است.</summary>
+    public CreditChargeRequest(int id, Buyer buyer, decimal amount, string maskedCardNumber, RequestStatus status, DateTime createdAt)
+        : base(id, RequestType.CreditCharge, buyer.Username, status, createdAt)
+    {
+        Buyer = buyer;
+        Amount = amount;
+        MaskedCardNumber = maskedCardNumber;
+    }
+
     public Buyer Buyer { get; }
 
     public decimal Amount { get; }

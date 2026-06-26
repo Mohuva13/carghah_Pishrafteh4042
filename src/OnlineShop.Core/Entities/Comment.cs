@@ -16,6 +16,19 @@ public sealed class Comment
         CreatedAt = DateTime.Now;
     }
 
+    /// <summary>سازنده مخصوص بازیابی نظر از فایل داده، با وضعیت و تاریخ اصلی.</summary>
+    public Comment(int id, string buyerUsername, int productId, string text, bool hasPurchasedProduct,
+        CommentStatus status, DateTime createdAt)
+    {
+        Id = id;
+        BuyerUsername = buyerUsername;
+        ProductId = productId;
+        Text = text;
+        HasPurchasedProduct = hasPurchasedProduct;
+        Status = status;
+        CreatedAt = createdAt;
+    }
+
     public int Id { get; }
 
     public string BuyerUsername { get; }

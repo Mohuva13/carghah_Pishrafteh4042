@@ -11,6 +11,13 @@ public sealed class RegistrationRequest : RequestBase
         PendingBuyer = pendingBuyer;
     }
 
+    /// <summary>سازنده مخصوص بازیابی از فایل داده.</summary>
+    public RegistrationRequest(int id, Buyer pendingBuyer, RequestStatus status, DateTime createdAt)
+        : base(id, RequestType.Registration, pendingBuyer.Username, status, createdAt)
+    {
+        PendingBuyer = pendingBuyer;
+    }
+
     public Buyer PendingBuyer { get; }
 
     protected override void OnApprove()

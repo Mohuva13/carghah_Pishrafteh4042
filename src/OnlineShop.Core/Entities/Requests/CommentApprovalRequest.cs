@@ -11,6 +11,13 @@ public sealed class CommentApprovalRequest : RequestBase
         Comment = comment;
     }
 
+    /// <summary>سازنده مخصوص بازیابی از فایل داده.</summary>
+    public CommentApprovalRequest(int id, Comment comment, RequestStatus status, DateTime createdAt)
+        : base(id, RequestType.CommentApproval, comment.BuyerUsername, status, createdAt)
+    {
+        Comment = comment;
+    }
+
     public Comment Comment { get; }
 
     protected override void OnApprove() => Comment.Approve();

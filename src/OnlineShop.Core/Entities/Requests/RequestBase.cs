@@ -17,6 +17,20 @@ public abstract class RequestBase
         CreatedAt = DateTime.Now;
     }
 
+    /// <summary>
+    /// سازنده مخصوص بازیابی درخواست از فایل داده: چون اثرات جانبی تایید/رد (مثلا افزایش اعتبار)
+    /// قبلا یک بار روی داده اعمال و ذخیره شده، اینجا فقط وضعیت به صورت مستقیم نشانده می شود
+    /// و OnApprove/OnReject دوباره اجرا نمی گردد.
+    /// </summary>
+    protected RequestBase(int id, RequestType type, string requesterUsername, RequestStatus status, DateTime createdAt)
+    {
+        Id = id;
+        Type = type;
+        RequesterUsername = requesterUsername;
+        Status = status;
+        CreatedAt = createdAt;
+    }
+
     public int Id { get; }
 
     public RequestType Type { get; }

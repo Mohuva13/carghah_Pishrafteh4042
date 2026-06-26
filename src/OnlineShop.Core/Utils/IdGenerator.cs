@@ -13,6 +13,9 @@ public sealed class IdGenerator
         _lastId = startFrom;
     }
 
+    /// <summary>آخرین شناسه تولید شده (برای ذخیره سازی وضعیت شمارنده در فایل داده).</summary>
+    public int Current => _lastId;
+
     public int Next() => ++_lastId;
 
     /// <summary>در زمان بارگذاری داده از فایل، شمارنده را همگام می کنیم تا شناسه تکراری تولید نشود.</summary>

@@ -16,6 +16,19 @@ public sealed class Buyer : Account
         Cart = new ShoppingCart();
     }
 
+    /// <summary>سازنده مخصوص بازیابی خریدار از فایل داده ذخیره شده؛ رمز عبور به صورت هش از قبل موجود است.</summary>
+    public Buyer(string username, string email, string phoneNumber, string passwordHash, bool isApproved, decimal credit)
+        : base(username, email, phoneNumber)
+    {
+        RestorePasswordHash(passwordHash);
+        IsApproved = isApproved;
+        Cart = new ShoppingCart();
+        if (credit > 0)
+        {
+            Credit = credit;
+        }
+    }
+
     public override string RoleName => "خریدار";
 
     /// <summary>پس از ثبت نام، تا زمان تایید درخواست توسط مدیر، حساب فعال نیست.</summary>
