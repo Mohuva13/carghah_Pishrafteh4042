@@ -22,6 +22,13 @@ public static class ManagerAreaView
             Console.Write($"{Environment.NewLine}manager> ");
             var input = Console.ReadLine();
 
+            if (input is null)
+            {
+                // ورودی به پایان رسیده (مثلا استریم بسته شده)؛ برای جلوگیری از حلقه بی نهایت خارج می شویم.
+                new AuthController(context).Logout();
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(input))
             {
                 continue;

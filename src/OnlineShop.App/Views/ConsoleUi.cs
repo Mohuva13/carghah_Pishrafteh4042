@@ -137,10 +137,20 @@ public static class ConsoleUi
         }
     }
 
+    /// <summary>
+    /// خواندن گزینه منو. اگر ورودی به پایان رسیده باشد (مثلا استریم ورودی بسته شده)،
+    /// "0" (بازگشت/خروج) بازگردانده می شود تا حلقه های منو دچار حلقه بی نهایت نشوند.
+    /// </summary>
+    public static string ReadMenuChoice()
+    {
+        var input = Console.ReadLine();
+        return input is null ? "0" : input.Trim();
+    }
+
     public static void Pause()
     {
         Console.WriteLine();
-        Console.WriteLine("برای ادامه، کلیدی را فشار دهید...");
-        Console.ReadKey(true);
+        Console.Write("برای ادامه Enter را بزنید...");
+        Console.ReadLine();
     }
 }

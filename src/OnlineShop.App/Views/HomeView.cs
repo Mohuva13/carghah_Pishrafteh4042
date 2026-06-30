@@ -20,7 +20,7 @@ public static class HomeView
             Console.WriteLine("0. خروج از برنامه");
             Console.Write("انتخاب شما: ");
 
-            switch (Console.ReadLine()?.Trim())
+            switch (ConsoleUi.ReadMenuChoice())
             {
                 case "1":
                     RegisterView.Show(context);

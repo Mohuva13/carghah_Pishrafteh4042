@@ -4,8 +4,14 @@ using OnlineShop.Controllers;
 using OnlineShop.Core.Entities;
 using OnlineShop.Data.Persistence;
 
+// تنظیم Encoding برای نمایش صحیح حروف فارسی در کنسول ویندوز.
+// وقتی ورودی از فایل/پایپ redirect شده باشد (مثلا در تست های خودکار)، تغییر InputEncoding
+// می تواند باعث از دست رفتن اولین خط بافر شده شود؛ بنابراین فقط در حالت تعاملی واقعی تنظیم می شود.
 Console.OutputEncoding = System.Text.Encoding.UTF8;
-Console.InputEncoding = System.Text.Encoding.UTF8;
+if (!Console.IsInputRedirected)
+{
+    Console.InputEncoding = System.Text.Encoding.UTF8;
+}
 
 var dataFilePath = Path.Combine(FindRepositoryRoot(), "data", "store.json");
 var dataStore = new DataStore(dataFilePath);

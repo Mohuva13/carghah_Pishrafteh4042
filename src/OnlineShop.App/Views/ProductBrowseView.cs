@@ -54,7 +54,7 @@ public static class ProductBrowseView
             Console.WriteLine("0. بازگشت");
             Console.Write("انتخاب شما: ");
 
-            switch (Console.ReadLine()?.Trim())
+            switch (ConsoleUi.ReadMenuChoice())
             {
                 case "1":
                     if (page < Math.Max(result.TotalPages, 1))

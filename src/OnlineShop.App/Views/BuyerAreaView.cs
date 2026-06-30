@@ -25,7 +25,7 @@ public static class BuyerAreaView
             Console.WriteLine("0. خروج از حساب کاربری");
             Console.Write("انتخاب شما: ");
 
-            switch (Console.ReadLine()?.Trim())
+            switch (ConsoleUi.ReadMenuChoice())
             {
                 case "1":
                     ProfileView.Show(context, buyer);

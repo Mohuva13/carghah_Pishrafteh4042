@@ -24,7 +24,7 @@ public static class ProfileView
 
             try
             {
-                switch (Console.ReadLine()?.Trim())
+                switch (ConsoleUi.ReadMenuChoice())
                 {
                     case "1":
                         accountController.UpdateEmail(buyer, ConsoleUi.ReadNonEmpty("ایمیل جدید"));

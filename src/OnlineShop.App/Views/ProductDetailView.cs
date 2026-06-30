@@ -35,7 +35,7 @@ public static class ProductDetailView
             Console.WriteLine("0. بازگشت");
             Console.Write("انتخاب شما: ");
 
-            switch (Console.ReadLine()?.Trim())
+            switch (ConsoleUi.ReadMenuChoice())
             {
                 case "1":
                     AddToCart(context, guestCart, product);
